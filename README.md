@@ -1,8 +1,9 @@
 # UltimaConsole
 ### Useful features like 
-- Downloading video/auido from YouTube
-- WinRAR/Windows activating
-- And... nothing more yet...
+- Open console
+- Clear console
+- Close console
+- The rest is provided by plugins
 ### Easy plugins development!
 1. Clone repo
 2. Open solution in Visual Studio
