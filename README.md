@@ -11,4 +11,4 @@
 4. Create plugin 
 5. build project using Vusial Studio or something else
 6. Enjoy!
-## All plugins you can find [here](https://github.com/DimaBroZY/UltimaConsole-Plugins)
+## All available official plugins you can find [here](https://github.com/DimaBroZY/UltimaConsole-Plugins)
