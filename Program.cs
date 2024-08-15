@@ -82,12 +82,12 @@ namespace BestConsole
         private static void DisplayHelp()
         {
             Console.WriteLine("Available commands:");
-            Console.WriteLine("- help");
-            Console.WriteLine("- clear");
-            Console.WriteLine("- exit");
-            foreach (var command in plugins.Keys)
+            Console.WriteLine("- help: Displays this help message");
+            Console.WriteLine("- clear: Clears the console");
+            Console.WriteLine("- exit: Exits the application");
+            foreach (var plugin in plugins.Values)
             {
-                Console.WriteLine($"- {command}");
+                Console.WriteLine($"- {plugin.CommandName}: {plugin.Description}");
             }
         }
 
