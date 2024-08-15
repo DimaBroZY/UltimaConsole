@@ -8,7 +8,8 @@
 1. Clone repo
 2. Open solution in Visual Studio
 3. Create new Class Library project in this solution
-4. Create plugin 
-5. build project using Vusial Studio or something else
-6. Enjoy!
+4. Create plugin
+5. Link main project with your plugin
+6. build project
+7. Enjoy!
 ## All available official plugins you can find [here](https://github.com/DimaBroZY/UltimaConsole-Plugins)
