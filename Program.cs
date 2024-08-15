@@ -12,6 +12,7 @@ namespace BestConsole
 
         static void Main(string[] args)
         {
+            DisplayAsciiArt();
             LoadPlugins();
 
             while (true)
@@ -37,12 +38,24 @@ namespace BestConsole
                         break;
                     case "clear":
                         Console.Clear();
+                        DisplayAsciiArt();
                         break;
                     default:
                         ExecutePlugin(command, commandArgs);
                         break;
                 }
             }
+        }
+
+        private static void DisplayAsciiArt()
+        {
+            Console.WriteLine("                  _   _ _ _   _                 _____                       _      ");
+            Console.WriteLine("                 | | | | | | (_)               /  __ \\                     | |     ");
+            Console.WriteLine("                 | | | | | |_ _ _ __ ___   __ _| /  \\/ ___  _ __  ___  ___ | | ___ ");
+            Console.WriteLine("                 | | | | | __| | '_ ` _ \\ / _` | |    / _ \\| '_ \\/ __|/ _ \\| |/ _ \\");
+            Console.WriteLine("                 | |_| | | |_| | | | | | | (_| | \\__/\\ (_) | | | \\__ \\ (_) | |  __/");
+            Console.WriteLine("                  \\___/|_|\\__|_|_| |_| |_|\\__,_|\\____/\\___/|_| |_|___/\\___/|_|\\___|");
+            Console.WriteLine();
         }
 
         private static void LoadPlugins()
