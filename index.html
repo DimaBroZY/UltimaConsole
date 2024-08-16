@@ -52,45 +52,28 @@
         .source-button:hover {
             background-color: #f1f1f1;
         }
-        .button-panel, .plugin-panel {
+        .plugin-panel {
             background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .plugin-panel {
-            display: none; /* Скрыто по умолчанию, можно показать по кнопке */
-        }
-        .show-plugin-panel-button {
-            background-color: #ffffff;
-            color: #121212;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-        .show-plugin-panel-button:hover {
-            background-color: #f1f1f1;
-        }
-        .plugins {
-            margin-top: 30px;
-            text-align: left;
             width: 100%;
+            max-width: 800px;
+            text-align: left;
         }
         .plugin {
-            background-color: #ffffff;
-            color: #121212;
+            display: block;
+            background-color: #4CAF50;
+            color: #ffffff;
             padding: 10px;
             margin: 5px 0;
             border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
             transition: background-color 0.3s ease;
         }
         .plugin:hover {
-            background-color: #f1f1f1;
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -102,21 +85,12 @@
             <a href="https://github.com/DimaBroZY/UltimaConsole/releases/download/v1.1.0/UltimaConsoleSetup.exe" class="button download-button">Download</a>
             <a href="https://github.com/DimaBroZY/UltimaConsole" class="button source-button">Source</a>
         </div>
-        <div class="show-plugin-panel-button" onclick="togglePluginPanel()">Show Plugins</div>
-        <div class="plugin-panel" id="plugin-panel">
+        <div class="plugin-panel">
+            <h2>Available Plugins</h2>
             <div class="plugins" id="plugins"></div>
         </div>
     </div>
     <script>
-        function togglePluginPanel() {
-            const panel = document.getElementById("plugin-panel");
-            if (panel.style.display === "none" || panel.style.display === "") {
-                panel.style.display = "flex";
-            } else {
-                panel.style.display = "none";
-            }
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
             const pluginsContainer = document.getElementById("plugins");
 
@@ -124,10 +98,6 @@
                 .then(response => response.json())
                 .then(files => {
                     if (files.length > 0) {
-                        const heading = document.createElement("h2");
-                        heading.textContent = "Available Plugins";
-                        pluginsContainer.appendChild(heading);
-
                         files.forEach(file => {
                             if (file.type === "file" && file.name.endsWith(".dll")) {
                                 const pluginElement = document.createElement("a");
@@ -137,6 +107,8 @@
                                 pluginsContainer.appendChild(pluginElement);
                             }
                         });
+                    } else {
+                        pluginsContainer.innerHTML = "<p>No plugins available.</p>";
                     }
                 })
                 .catch(error => {
