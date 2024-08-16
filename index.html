@@ -52,16 +52,19 @@
         .source-button:hover {
             background-color: #f1f1f1;
         }
-        .button-panel {
+        .button-panel, .plugin-panel {
             background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .show-panel-button {
+        .plugin-panel {
+            display: none; /* Скрыто по умолчанию, можно показать по кнопке */
+        }
+        .show-plugin-panel-button {
             background-color: #ffffff;
             color: #121212;
             padding: 10px;
@@ -70,12 +73,13 @@
             margin-top: 20px;
             transition: background-color 0.3s ease;
         }
-        .show-panel-button:hover {
+        .show-plugin-panel-button:hover {
             background-color: #f1f1f1;
         }
         .plugins {
             margin-top: 30px;
             text-align: left;
+            width: 100%;
         }
         .plugin {
             background-color: #ffffff;
@@ -94,16 +98,18 @@
     <div class="container">
         <img src="logo.png" alt="Ultima Console Logo" class="logo">
         <h1>Ultima Console</h1>
-        <div class="show-panel-button" onclick="togglePanel()">Toggle Buttons</div>
-        <div class="button-panel" id="button-panel">
+        <div class="button-panel">
             <a href="https://github.com/DimaBroZY/UltimaConsole/releases/download/v1.1.0/UltimaConsoleSetup.exe" class="button download-button">Download</a>
             <a href="https://github.com/DimaBroZY/UltimaConsole" class="button source-button">Source</a>
         </div>
-        <div class="plugins" id="plugins"></div>
+        <div class="show-plugin-panel-button" onclick="togglePluginPanel()">Show Plugins</div>
+        <div class="plugin-panel" id="plugin-panel">
+            <div class="plugins" id="plugins"></div>
+        </div>
     </div>
     <script>
-        function togglePanel() {
-            const panel = document.getElementById("button-panel");
+        function togglePluginPanel() {
+            const panel = document.getElementById("plugin-panel");
             if (panel.style.display === "none" || panel.style.display === "") {
                 panel.style.display = "flex";
             } else {
