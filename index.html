@@ -52,6 +52,27 @@
         .source-button:hover {
             background-color: #f1f1f1;
         }
+        .button-panel {
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        .show-panel-button {
+            background-color: #ffffff;
+            color: #121212;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .show-panel-button:hover {
+            background-color: #f1f1f1;
+        }
         .plugins {
             margin-top: 30px;
             text-align: left;
@@ -73,11 +94,23 @@
     <div class="container">
         <img src="logo.png" alt="Ultima Console Logo" class="logo">
         <h1>Ultima Console</h1>
-        <a href="https://github.com/DimaBroZY/UltimaConsole/releases/download/v1.1.0/UltimaConsoleSetup.exe" class="button download-button">Download</a>
-        <a href="https://github.com/DimaBroZY/UltimaConsole" class="button source-button">Source</a>
+        <div class="show-panel-button" onclick="togglePanel()">Toggle Buttons</div>
+        <div class="button-panel" id="button-panel">
+            <a href="https://github.com/DimaBroZY/UltimaConsole/releases/download/v1.1.0/UltimaConsoleSetup.exe" class="button download-button">Download</a>
+            <a href="https://github.com/DimaBroZY/UltimaConsole" class="button source-button">Source</a>
+        </div>
         <div class="plugins" id="plugins"></div>
     </div>
     <script>
+        function togglePanel() {
+            const panel = document.getElementById("button-panel");
+            if (panel.style.display === "none" || panel.style.display === "") {
+                panel.style.display = "flex";
+            } else {
+                panel.style.display = "none";
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const pluginsContainer = document.getElementById("plugins");
 
