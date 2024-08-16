@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultima Console</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .download-button {
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        .download-button:hover {
+            background-color: #45a049;
+        }
+        .source-button {
+            background-color: #ffffff;
+            color: #121212;
+        }
+        .source-button:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Ultima Console Logo" class="logo">
+        <h1>Ultima Console</h1>
+        <a href="https://github.com/DimaBroZY/UltimaConsole/releases/download/v1.1.0/UltimaConsoleSetup.exe" class="button download-button">Download</a>
+        <a href="https://github.com/DimaBroZY/UltimaConsole" class="button source-button">Source</a>
+    </div>
+</body>
+</html>
