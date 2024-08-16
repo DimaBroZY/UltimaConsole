@@ -52,6 +52,21 @@
         .source-button:hover {
             background-color: #f1f1f1;
         }
+        .plugins {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .plugin {
+            background-color: #ffffff;
+            color: #121212;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .plugin:hover {
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +75,35 @@
         <h1>Ultima Console</h1>
         <a href="https://github.com/DimaBroZY/UltimaConsole/releases/download/v1.1.0/UltimaConsoleSetup.exe" class="button download-button">Download</a>
         <a href="https://github.com/DimaBroZY/UltimaConsole" class="button source-button">Source</a>
+        <div class="plugins" id="plugins"></div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const pluginsContainer = document.getElementById("plugins");
+
+            fetch("https://api.github.com/repos/DimaBroZY/UltimaConsole-Plugins/contents/Plugins")
+                .then(response => response.json())
+                .then(files => {
+                    if (files.length > 0) {
+                        const heading = document.createElement("h2");
+                        heading.textContent = "Available Plugins";
+                        pluginsContainer.appendChild(heading);
+
+                        files.forEach(file => {
+                            if (file.type === "file" && file.name.endsWith(".dll")) {
+                                const pluginElement = document.createElement("a");
+                                pluginElement.href = file.download_url;
+                                pluginElement.className = "plugin";
+                                pluginElement.textContent = file.name;
+                                pluginsContainer.appendChild(pluginElement);
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error loading plugins:", error);
+                });
+        });
+    </script>
 </body>
 </html>
