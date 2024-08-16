@@ -81,13 +81,23 @@ namespace BestConsole
 
         private static void DisplayHelp()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Available commands:");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("- help: Displays this help message");
             Console.WriteLine("- clear: Clears the console");
             Console.WriteLine("- exit: Exits the application");
+            Console.ResetColor();
+
             foreach (var plugin in plugins.Values)
             {
-                Console.WriteLine($"- {plugin.CommandName}: {plugin.Description}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($"- {plugin.CommandName}: ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(plugin.Description);
+                Console.ResetColor();
             }
         }
 
